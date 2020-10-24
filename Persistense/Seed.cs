@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Domain;
 
 namespace Persistense
@@ -8,6 +9,8 @@ namespace Persistense
     {
         public static void SeedData(DataContext context)
         {
+            var exists = context.Activities.Any();
+            if (exists == true) return;
             var activities = new List<Activity>(){
                 new Activity
                 {
