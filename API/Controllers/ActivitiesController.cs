@@ -18,7 +18,6 @@ namespace API.Controllers
         {
             _logger = logger;
             _mediator = mediator;
-
         }
 
         [HttpGet]
@@ -40,7 +39,7 @@ namespace API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<Unit>> Create(Guid id, Edit.Command command)
+        public async Task<ActionResult<Unit>> Update(Guid id, Edit.Command command)
         {
             command.Id = id;
             return await _mediator.Send(command);
